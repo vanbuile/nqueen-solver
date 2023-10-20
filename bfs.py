@@ -36,7 +36,7 @@ class QueensBFS:
         return True
 
 def main():
-    size = 15
+    size = 10
     n_queens = QueensBFS(size)
 
     start_time = time.time()
