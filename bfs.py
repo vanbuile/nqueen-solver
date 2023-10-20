@@ -24,19 +24,23 @@ class QueensBFS:
                 queens = solution.copy()
                 queens.append(queen)
                 queue.put(queens)
+                # print(queens)
         return result
 
     def is_safe(self, queens):
-        for i in range(1, len(queens)):
-            for j in range(0, i):
-                a, b = i, queens[i]
-                c, d = j, queens[j]
-                if a == c or b == d or abs(a - c) == abs(b - d):
-                    return False
+        for i in range(0, len(queens) - 1):
+            a, b = i, queens[i]
+            if len(queens) > 1:
+                c, d = len(queens) - 1, queens[len(queens) - 1]
+            else:
+                c, d = -1, -2
+            if a == c or b == d or abs(a - c) == abs(b - d):
+                return False
         return True
 
+
 def main():
-    size = 15
+    size = 10
     n_queens = QueensBFS(size)
 
     start_time = time.time()
